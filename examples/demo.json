@@ -1,0 +1,95 @@
+{
+  "snapshot": {
+    "market": "SG",
+    "source": "sample",
+    "attributeResponse": {
+      "error": "",
+      "response": {
+        "list": [
+          {
+            "category_id": 99910001,
+            "attribute_tree": [
+              {
+                "attribute_id": 41001,
+                "mandatory": true,
+                "name": "Bottle type",
+                "attribute_info": {"input_type": 1, "input_validation_type": 2, "format_type": 1},
+                "attribute_value_list": [
+                  {
+                    "value_id": 51101,
+                    "name": "Flip top",
+                    "child_attribute_list": [
+                      {
+                        "attribute_id": 41002,
+                        "mandatory": true,
+                        "name": "Latch material",
+                        "attribute_info": {"input_type": 1, "input_validation_type": 2, "format_type": 1},
+                        "attribute_value_list": [{"value_id": 51201, "name": "Polypropylene"}]
+                      }
+                    ]
+                  },
+                  {"value_id": 51102, "name": "Screw top"}
+                ]
+              },
+              {
+                "attribute_id": 41003,
+                "mandatory": true,
+                "name": "Capacity",
+                "attribute_info": {
+                  "input_type": 3,
+                  "input_validation_type": 3,
+                  "format_type": 2,
+                  "attribute_unit_list": ["ml", "l"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "itemLimitResponse": {
+      "error": "",
+      "response": {
+        "item_name_length_limit": {"min_limit": 10, "max_limit": 100},
+        "item_description_length_limit": {"min_limit": 20, "max_limit": 3000},
+        "item_image_count_limit": {"min_limit": 1, "max_limit": 9}
+      }
+    }
+  },
+  "drafts": [
+    {
+      "item_sku": "SG-DEMO-NAVY",
+      "category_id": 99910001,
+      "item_name": "Navy reusable drink bottle",
+      "description": "A navy blue reusable bottle with a 700 ml capacity.",
+      "image": {"image_id_list": ["fictional_image_navy"]},
+      "attribute_list": [
+        {"attribute_id": 41001, "attribute_value_list": [{"value_id": 51101}]},
+        {"attribute_id": 41003, "attribute_value_list": [{"value_id": 0, "original_value_name": "500", "value_unit": "ml"}]}
+      ],
+      "approved": {
+        "productName": "Navy reusable drink bottle",
+        "statements": "The bottle comes in navy blue.\nThe capacity is 500 ml.",
+        "measurements": "500 ml",
+        "phrases": "navy blue"
+      }
+    },
+    {
+      "item_sku": "SG-DEMO-SAND",
+      "category_id": 99910001,
+      "item_name": "Sand reusable drink bottle",
+      "description": "This bottle comes in sandstone beige. The capacity is 0.75 l.",
+      "image": {"image_id_list": ["fictional_image_sand"]},
+      "attribute_list": [
+        {"attribute_id": 41001, "attribute_value_list": [{"value_id": 51102}]},
+        {"attribute_id": 41003, "attribute_value_list": [{"value_id": 0, "original_value_name": "750", "value_unit": "ml"}]}
+      ],
+      "approved": {
+        "productName": "Sand reusable drink bottle",
+        "statements": "The bottle comes in sandstone beige.\nThe capacity is 750 ml.",
+        "measurements": "750 ml",
+        "phrases": "sandstone beige"
+      }
+    }
+  ]
+}

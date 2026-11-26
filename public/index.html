@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-SG">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review Shopee Singapore listing drafts in batches and prepare title, selling points and descriptions from approved product facts.">
+  <title>Draft Checker for Shopee Singapore · Taodock</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <div class="identity"><span aria-hidden="true" class="mark">✓</span> Taodock</div>
+      <button type="button" id="load-demo" class="secondary">Load sample batch</button>
+    </header>
+    <section class="intro">
+      <h1>Draft Checker for<br class="wide"> Shopee Singapore</h1>
+      <p>Find missing category attributes, invalid variation options and conflicting measurements before you submit listings.</p>
+    </section>
+    <p id="status" class="status" role="status"></p>
+    <div class="workspace">
+      <section class="panel" aria-labelledby="input-heading">
+        <h2 id="input-heading">Batch input</h2>
+        <div class="file-row">
+          <label for="snapshot">Shopee rules (JSON)</label>
+          <label class="file-label" for="snapshot-file">Import file</label>
+          <input class="file-input" type="file" id="snapshot-file" accept=".json,application/json" aria-label="Import Shopee rules">
+        </div>
+        <textarea id="snapshot" rows="7" spellcheck="false" placeholder='{"market":"SG","attributeResponse":{"response":{"list":[…]}}}'></textarea>
+        <div class="file-row">
+          <label for="drafts">Listing drafts (JSON array)</label>
+          <label class="file-label" for="drafts-file">Import file</label>
+          <input class="file-input" type="file" id="drafts-file" accept=".json,application/json" aria-label="Import listing drafts">
+        </div>
+        <textarea id="drafts" rows="12" spellcheck="false" placeholder='[{"category_id":"…","item_name":"…","description":"…"}]'></textarea>
+        <div class="controls">
+          <button type="button" id="check-batch">Check batch</button>
+          <button type="button" id="local-copy" class="secondary">Prepare batch copy</button>
+        </div>
+      </section>
+      <section class="panel" aria-labelledby="report-heading">
+        <h2 id="report-heading">Batch report</h2>
+        <p id="report-status" class="hint" role="status">Run a check to see issues by draft.</p>
+        <ul id="warnings" class="warnings" hidden></ul>
+        <div id="report-rows" class="rows"></div>
+        <button type="button" id="download-report" class="secondary" disabled>Download report</button>
+      </section>
+      <section class="panel copy" aria-labelledby="copy-heading">
+        <h2 id="copy-heading">Copy preview</h2>
+        <p class="hint">Prepare title, selling points and description from each draft’s approved name and statements.</p>
+        <div class="controls">
+          <button type="button" class="secondary" id="load-models" disabled>Load Taodock models</button>
+        </div>
+        <div id="ai-settings" class="ai-settings" hidden>
+          <label for="draft-number">Draft number</label>
+          <input id="draft-number" type="number" value="1" min="1" max="100" step="1">
+          <label for="model">Taodock model</label>
+          <select id="model"></select>
+          <p class="hint">Only the selected draft’s approved statements are sent to suggest an order. Model calls can use API credit.</p>
+          <button type="button" id="ai-copy" class="secondary">Order selected draft with Taodock</button>
+        </div>
+        <p id="copy-status" class="status" role="status"></p>
+        <div id="copy-rows" class="rows"></div>
+        <div id="copy-controls" class="export" hidden>
+          <label class="confirm"><input type="checkbox" id="confirm-copy"> I reviewed the copy I’m exporting.</label>
+          <button type="button" id="download-copy" disabled>Download reviewed copy</button>
+        </div>
+      </section>
+    </div>
+    <footer>Taodock · Independent seller tool</footer>
+  </main>
+</body>
+</html>
